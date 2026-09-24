@@ -9,12 +9,28 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage[hidelinks]{hyperref}
+% Support ACM-style author metadata in the current article layout.
+\makeatletter
+\newcommand{\orcid}[1]{\g@addto@macro\@author{\\\href{https://orcid.org/#1}{ORCID: #1}}}
+\newcommand{\affiliation}[1]{\g@addto@macro\@author{\\#1}}
+\newcommand{\email}[1]{\g@addto@macro\@author{\\\href{mailto:#1}{#1}}}
+\makeatother
+\newcommand{\institution}[1]{#1\\}
+\newcommand{\city}[1]{#1, }
+\newcommand{\country}[1]{#1}
 % Use \socialsource{} for the consistently formatted project name.
 \newcommand{\socialsource}{\texorpdfstring{\textit{Social\textsuperscript{3} Source}}{Social3 Source}}
 \setlength{\emergencystretch}{3em}
 \title{\socialsource{}: Connecting Social Provenance,
 Societal Qualities, and Social Purpose on an Open-Source Softwaree Foundation}
 \author{Jordi Cabot}
+\orcid{0000-0003-2418-2489}
+\affiliation{%
+\institution{Luxembourg Institute of Science and Technology}
+\institution{University of Luxembourg}
+\city{Esch-sur-Alzette}
+\country{Luxembourg}}
+\email{jordi-cabot@list.lu}
 \date{}
 \begin{document}
 \maketitle
