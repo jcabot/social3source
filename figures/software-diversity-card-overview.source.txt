@@ -1,0 +1,12 @@
+Source: The_Software_Diversity_Card.zip, supplied by the user.
+Original archive path: figures/conceptMapPlan.pdf
+Figure 1: Overview of the Software Diversity Card.
+The figure is reproduced unchanged as a vector PDF.
+
+Joan Giner-Miguelez, Sergio Morales, Sergio Cobos, Javier Luis Canovas Izquierdo, Robert Clariso, and Jordi Cabot.
+The Software Diversity Card: A Framework for Reporting Diversity in Software Projects.
+Information and Software Technology 190 (2026), 107950.
+https://doi.org/10.1016/j.infsof.2025.107950
+
+Drafted social-provenance text draws on the supplied introduction, Section 4
+(Dimensions of the diversity card, sections/03-Card.tex), and conclusions.

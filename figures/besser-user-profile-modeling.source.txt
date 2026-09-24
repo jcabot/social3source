@@ -1,0 +1,12 @@
+Figure 2 extracted unchanged from the user-supplied AgentPersonalizationToolPaperModels2026.zip.
+Archive member: figures/userdiagramagent4.png
+Figure declaration: content/3usermodeling.tex
+Manuscript: Who are my users? A graphical language and modeling environment for specifying end-user profiles.
+Authors: Aaron Conrardy, Alfredo Capozucca, Jordi Cabot.
+
+Related published chapter requested by the user:
+A Low-Code Approach for the Automatic Personalization of Conversational Agents.
+Web Engineering, 2026, pp. 47--61.
+https://doi.org/10.1007/978-3-032-29372-5_4
+
+The attached manuscript and the linked chapter are distinct works.
