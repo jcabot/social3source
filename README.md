@@ -1,20 +1,20 @@
 # Social³ Source
 
-Point-only LaTeX scaffold for the position paper, copied from
+LaTeX source for the Social³ Source position paper, developed from
 `Social3_Source_Paper_Brief.pdf` (23 September 2026).
 
-`main.tex` contains the ten agreed sections and the detailed points mapped to
-their corresponding sections, without elaboration. It uses the brief's first
-candidate title as a working title, Jordi Cabot as the single author, and the
-brief's definition as the abstract. The opening quotation is explicitly labeled
-as an adaptation. Working proposals and unresolved questions retain the brief's
-wording.
+`main.tex` defines the concept and its three social dimensions, illustrates them
+with a hypothetical migrant-services application, proposes a model-based
+development framework using BESSER, and discusses related work and a research
+roadmap. Jordi Cabot is the single author. The introduction's quotation is
+explicitly labeled as a paraphrase; proposed capabilities and evaluation needs
+are distinguished from demonstrated results.
 
-The 13 reference leads are stored in `references.bib`, using BibTeX's standard
-`unsrt` style (numbered references in citation order). Their
-metadata and claims have not been independently verified; the verification notes
-from the brief are retained. This is a scaffold for further drafting, not a
-finished submission.
+`references.bib` contains cited sources and retained reference leads from the
+brief. Only cited sources appear in the paper, using BibTeX's standard `unsrt`
+style (numbered references in citation order). The editorial pass checks citation
+keys and cross-references; it does not independently verify bibliographic
+metadata or source claims.
 
 Build with a standard LaTeX installation:
 
@@ -25,9 +25,8 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The source uses standard packages and no custom styles or external figures.
-Keep `main.tex` and `references.bib` together. All 13 reference leads are included,
-including those not yet cited in a section, using `\nocite{*}`.
+The source uses standard packages and figures stored in `figures/`.
+Keep that directory alongside `main.tex` and `references.bib`.
 
 Compilation could not be checked in the current environment because system
 policy blocks the installed `pdflatex` executable. No compiled PDF is included.
