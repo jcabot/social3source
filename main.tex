@@ -1,4 +1,5 @@
 % Position paper developed from Social3_Source_Paper_Brief.pdf.
+% Reference leads are copied, not bibliographically verified.
 \documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -20,7 +21,7 @@
 \newcommand{\socialsource}{\texorpdfstring{\textit{Social\textsuperscript{3} Source}}{Social3 Source}}
 \setlength{\emergencystretch}{3em}
 \title{\socialsource{}: Connecting Social Provenance,
-Societal Qualities, and Social Purpose on an Open-Source Foundation}
+Societal Qualities, and Social Purpose on an Open-Source Software Foundation}
 \author{Jordi Cabot}
 \orcid{0000-0003-2418-2489}
 \affiliation{%
@@ -33,37 +34,47 @@ Societal Qualities, and Social Purpose on an Open-Source Foundation}
 \begin{document}
 \maketitle
 \begin{abstract}
-Software can be created and deployed faster than ever, but what is the point if it does not contribute to society?
-The goal of building software should be to improve human lives.
-This requires more than publishing it as open source: it requires considering how it is developed, the qualities it embodies, and the purposes it serves.
-We introduce \socialsource{}, which connects social provenance, societal qualities, and social purpose on an open-source foundation.
-This position paper defines the concept, illustrates it through a hypothetical application for migrant services, and proposes a model-based development framework and research roadmap.
-As our capacity to generate software grows, we should ensure that the result is worth creating.
+The speed at which software can be created and deployed today has increased dramatically.
+But what is the point of all this software if it does not contribute to society?
+The goal of building any software should be bettering human lives and society.
+And this goes beyond publishing the software as open source; it requires considering how it is developed, the societal qualities it embodies, and the purposes it serves.
+This is what I call \socialsource{}.
+This paper presents the concept, principles, and initial discussion for the implementation of \socialsource{}, illustrating how it integrates social considerations into open-source software development.
+We have never generated as much software as we do today.
+Let's make sure it is worth it.
+
 \end{abstract}
+
 
 \section{Introduction}
 
 Creating software is easier than ever thanks to technologies such as low-code development~\cite{Cabot2024LowCode} and, especially, recent advances in artificial intelligence (AI).
-Visual abstractions, reusable components, and natural-language interaction help developers translate ideas into running applications with less effort.\footnote{Whether all this software meets appropriate standards of quality is a separate discussion.}
-They also make development more accessible beyond the profession, supporting \emph{citizen development}, in which non-IT professionals create software~\cite{Binzer2022Citizen}, and \emph{end-user development}, in which users adapt and build software for their own needs~\cite{Fischer2004MetaDesign}.
+These technologies help developers translate ideas into running applications more quickly, improving productivity and reducing the effort required to build software.\footnote{Whether all this software meets appropriate standards of quality is a separate discussion.}
+Their significance extends beyond professional developers: they also bring the promise of \emph{citizen development}, in which non-IT professionals create software~\cite{Binzer2022Citizen}, and \emph{end-user development}, in which users adapt and build software for their own needs~\cite{Fischer2004MetaDesign}, closer to everyday practice.
+The combination of visual abstractions, reusable components, and natural-language interaction may finally make the longstanding ambition of every citizen becoming a developer of their own applications a practical possibility.
 
 This \emph{development fever}, however, comes at a sustainability cost.
 As emphasized by the Karlskrona Manifesto, software sustainability involves interconnected environmental, economic, and social concerns, alongside individual and technical ones~\cite{Becker2015Sustainability}.
 Creating, deploying, and operating more applications consumes resources, introduces maintenance and financial commitments, and can reproduce biases or reinforce exclusion.
 Lowering the cost of creating an application does not eliminate the costs of sustaining it or the consequences of its use.
-We should therefore assess the software's benefits to society alongside its costs and potential harms.
+We should therefore ensure that the software we create also brings benefits to society, and assess those benefits alongside its costs and potential harms.
 Paraphrasing Fei-Fei Li\footnote{\url{https://x.com/drfeifei/status/2102508817653379411}}:
 \begin{quote}
 The goal of building any software, AI included, should be bettering human lives and society.
 \end{quote}
 
 Open-source software grants essential freedoms to inspect, use, modify, and redistribute software~\cite{R3}.
-We take these freedoms as a necessary foundation for our proposal, but they do not guarantee societal benefit.
+These freedoms enable communities to understand, adapt, share, and maintain the applications on which they depend.
+We take open source as a necessary foundation for our proposal, but it is not a sufficient condition to guarantee that software benefits society.
 An open license alone does not establish that development was inclusive, that an application embodies relevant societal qualities, or that its use benefits the people it aims to serve.
 
-To connect these concerns, we introduce \socialsource{} and its three dimensions: \emph{social provenance}, \emph{societal qualities}, and \emph{social purpose}.
-Together, they address how and by whom software is built, what properties it embodies, and why it exists and whom it serves.
-We present the concept as a position for discussion, illustrated below, and propose a framework for integrating it into development and assessment.
+To connect these concerns, we introduce \socialsource{}: open-source software that is social in how it is built, in the qualities it embodies, and in the purposes it serves.
+The superscript three refers to three complementary social dimensions.
+\emph{Social provenance} concerns how and by whom software is developed and governed, including diverse contributions and meaningful participation by affected communities.
+\emph{Societal qualities} concern the properties software embodies, such as accessibility, multilingualism, privacy, fairness, affordability, and environmental sustainability.
+\emph{Social purpose} concerns why software is created or adapted, whom it serves, and the benefits and harms associated with its use, distinguishing intended benefit from observed outcomes.
+Together, these dimensions connect development practices, software properties, and societal consequences over an open-source foundation.
+We present this concept as an initial position for discussion and a basis for further work on development and assessment.
 
 \begin{center}
 \setlength{\fboxsep}{10pt}
@@ -72,13 +83,14 @@ We present the concept as a position for discussion, illustrated below, and prop
 \small
 \textbf{An illustrative example: an application for migrant services}
 \par\medskip
-Consider a hypothetical community organization developing an open-source application to help migrants find local services and navigate administrative procedures.
+Consider a community organization developing an open-source application to help migrants find local services and navigate administrative procedures.
 Its open license would allow other organizations to inspect, adapt, redistribute, and maintain it.
+The scenario illustrates how the three social dimensions of \socialsource{} could be put into practice and assessed.
 
 \medskip
 \textbf{Social provenance.}
 Migrants, social workers, translators, accessibility specialists, and developers would jointly define requirements, test the application, and influence project decisions.
-Documenting how their contributions shape the application would provide evidence of meaningful participation beyond coding.
+Documenting their contributions and how their feedback changes the application would provide evidence of meaningful participation beyond code contributions.
 
 \medskip
 \textbf{Societal qualities.}
@@ -90,25 +102,28 @@ Trade-offs would require explicit decisions: for example, AI translation could b
 \textbf{Social purpose.}
 The application would address service-access barriers identified by the community.
 Evaluation would examine whether migrants can find relevant services and complete administrative tasks more easily, while also investigating unintended harms and who remains excluded.
+These observations would provide evidence of societal benefit beyond a stated intention to help.
 
 \medskip
+Together, these forms of evidence would support an assessment across all three dimensions.
 An openly licensed directory developed without migrants, inaccessible to some users, or never adopted by its intended community would leave one or more dimensions unsupported.
-This scenario illustrates what validation would require; it does not report an implemented application or demonstrated impact.
+The scenario is hypothetical: it illustrates what validation would require, rather than reporting an implemented application or demonstrated impact.
 \end{minipage}%
 }
 \end{center}
 
+The remainder of the paper is structured as follows.
 Section~\ref{sec:concept} defines the \socialsource{} concept.
 Sections~\ref{sec:provenance}--\ref{sec:purpose} examine its three social dimensions.
-Section~\ref{sec:besser} proposes a model-based development framework using BESSER, and Section~\ref{sec:related} discusses related work and initiatives.
+Section~\ref{sec:besser} presents a proposed BESSER-based development framework, and Section~\ref{sec:related} discusses related concepts and initiatives.
 Section~\ref{sec:conclusion} concludes the paper and presents a roadmap of research challenges.
 
 \section{The \socialsource{} concept}
 \label{sec:concept}
 
 We define \socialsource{} as \emph{open-source software that is social in how it is built, in the qualities it embodies, and in the purposes it serves}.
-The name is pronounced ``Social Cubed Source''; the superscript three denotes social provenance, societal qualities, and social purpose.
-Figure~\ref{fig:socialsource-foundation} shows their shared open-source foundation and interdependence.
+The superscript three, pronounced ``Social Cubed Source,'' captures these three complementary dimensions: social provenance, societal qualities, and social purpose.
+As illustrated in Figure~\ref{fig:socialsource-foundation}, open source provides their shared foundation, while the connections among the dimensions emphasize that decisions about people, software properties, and intended benefits influence one another.
 
 \begin{figure}[htbp]
 \centering
@@ -118,49 +133,63 @@ The surrounding arrows emphasize their interdependence across software developme
 \label{fig:socialsource-foundation}
 \end{figure}
 
-We propose a license approved by the Open Source Initiative (OSI) as the operational reference for the open-source foundation~\cite{R3a}.
-Its freedoms allow communities to adapt an application, share improvements, and continue development beyond the involvement of its original creators.
+The open-source foundation establishes the freedoms to inspect, use, modify, and redistribute the software~\cite{R3}.
+These freedoms allow communities to adapt an application to their circumstances, share improvements, and continue its development beyond the involvement of its original creators.
+We propose a license approved by the Open Source Initiative (OSI) as the operational reference for this foundation~\cite{R3a}.
 Open governance, accessible documentation, and open standards can help communities exercise these freedoms, but require commitments beyond licensing alone.
+Within our proposal, all \socialsource{} software is therefore open source, while an open-source license alone does not establish the three social dimensions.
 
 \textbf{Social provenance: how and by whom the software is built.}
 This dimension concerns the people, contributions, and decisions that shape an application throughout its development and maintenance.
 It encompasses developers as well as domain experts, designers, translators, testers, users, funders, and governance participants.
 The aim is to enable people with different backgrounds and relevant experience, particularly affected communities, to influence requirements and decisions through inclusive contribution routes, transparent governance, and fair recognition.
+In the migrant-services example, this would mean giving migrants a meaningful role in deciding which needs the application addresses and how it addresses them, and documenting how their contributions affect the result.
 
 \textbf{Societal qualities: what properties the software embodies.}
 This dimension concerns how an application's design and operation reflect the needs, resources, and circumstances of the people who use it.
 Relevant qualities include accessibility, multilingualism, affordability, privacy, fairness, security, and environmental sustainability.
-Priorities and trade-offs depend on context and should be expressed as requirements that guide implementation and evaluation.
+Their priorities and the trade-offs among them depend on the context and should be expressed as requirements that can guide implementation and evaluation.
+For the migrant-services application, these could include support for community languages, accessible interfaces, limited collection of personal information, and operation on modest devices or unreliable networks.
 Assessing these qualities requires examining both the implemented software and users' experience of it.
 
 \textbf{Social purpose: why the software exists and whom it serves.}
 This dimension concerns the social needs an application addresses and the consequences of its use for its intended communities.
 Software may acquire such a purpose through its original design or through later adaptation and adoption by a community.
+For the migrant-services application, the purpose would be to reduce barriers to accessing services and navigating administrative procedures.
 A credible account of this purpose identifies the beneficiaries and their needs, then progressively gathers evidence about adoption, benefits, and unintended harms.
-Intended benefit and demonstrated impact remain distinct.
+Intended benefit and demonstrated impact remain distinct, allowing a new project to articulate a social purpose while making clear what still needs to be evaluated.
 
-Progress in one or two dimensions is valuable; \socialsource{} encourages projects to build on it and address all three throughout the software lifecycle.
+Addressing even one of these dimensions is already valuable, and efforts that advance one or two dimensions deserve recognition even when they do not yet address all three.
+The aim of \socialsource{} is to encourage projects to build on these contributions and progressively consider the other dimensions.
+The three dimensions should be considered together throughout the software lifecycle.
 Participation can reveal overlooked accessibility needs, design choices can enable or prevent access to services, and feedback from actual use can reshape both requirements and governance.
-The concept applies regardless of development technology or organizational setting, including commercial projects and non-governmental organizations (NGOs).
+The concept applies regardless of the development technology or whether a project operates commercially, within a non-governmental organization (NGO), or in another organizational setting.
 
-These commitments can require additional time and resources.
-Inclusive participation needs coordination and collective decision-making; multilingual support and accessibility require design work and validation with users.
-Reducing bias in AI-enabled functionality may require model selection, adaptation, or training, supported by appropriate data and evaluation.
-Projects should anticipate these costs when setting their scope, resources, priorities, and minimum requirements.
+Achieving these properties also involves trade-offs.
+Unfortunately, developing \socialsource{} software will often require more time and a larger budget than delivering the same core functionality without these commitments.
+Involving more people during conception and development requires time for participation, coordination, and collective decision-making.
+Multilingual support and accessibility may require additional features, design work, and validation with users.
+Reducing bias in AI-enabled functionality may also require selecting, adapting, or training models for the intended communities, together with appropriate data collection and evaluation.
+These efforts introduce costs that need to be anticipated when defining the project's scope, resources, and priorities.
+They also illustrate why the pursuit of societal qualities requires explicit choices about acceptable compromises and minimum requirements.
 
-\socialsource{} calls for explicit commitments and supporting evidence across all three dimensions.
+At this stage, \socialsource{} is a conceptual position that calls for explicit commitments and supporting evidence across all three dimensions.
 Qualification thresholds, assessment methods, and the treatment of contextual trade-offs remain part of the research agenda discussed in Section~\ref{sec:discussion}.
 
 \section{Social provenance}
 \label{sec:provenance}
 
-Recognizing non-coding roles is a first step toward diversity in software development.
-C\'anovas Izquierdo and Cabot~\cite{Canovas2022NonCoding} highlight their significant contribution to open-source projects.
-People in both coding and non-coding roles should also have a say in decisions that shape the software.
-Social provenance concerns both the range of contributions a project welcomes and the backgrounds, experiences, and perspectives represented, with relevant forms of diversity informed by the intended communities and uses.
+Recognizing the importance of non-coding roles is a first step toward diversity in software development.
+The study by C\'anovas Izquierdo and Cabot~\cite{Canovas2022NonCoding} highlights the significant contribution of people who specialize in non-coding activities in open-source projects.
+However, recognizing a variety of roles is not enough.
+People in both coding and non-coding roles should be able to participate actively, including having a say in the decisions that shape the software.
+These roles should also be occupied by people with diverse backgrounds, origins, and lived experiences, with the relevant forms of diversity informed by the software's context, intended communities, and anticipated usage scenarios.
+Social provenance therefore concerns both the range of contributions a project welcomes and whose perspectives and influence those contributions represent.
 
-Following the Software Diversity Card~\cite{R2}, we organize social provenance into three subdimensions: participants, usage context, and governance (Figure~\ref{fig:diversity-card}).
-These capture who contributes, the communities and circumstances the software serves, and the rules and bodies that direct its development.
+Following the proposal from the Software Diversity Card~\cite{R2}, we decompose the provenance dimension of software into participants, usage context, and governance.
+This way we are able to systematically capture who participated in the project, the context in which it is used, and the governance structures that guide its development.
+Figure~\ref{fig:diversity-card} depicts these three subdimensions.
+Participants describe those contributing within a project, usage context describes the communities and circumstances it serves, and governance connects participation to the rules and bodies that direct the project.
 
 \begin{figure}[!htbp]
 \centering
@@ -174,24 +203,29 @@ Participants include development teams, translators, documenters, issue reporter
 Relevant attributes include their roles, languages, experience, education, location, and demographic characteristics, where appropriate to collect and disclose.
 This broader view matters because repository commits capture only part of the work, and people who report issues or join tests may not represent the intended users.
 Testing conditions, including tasks, time, and working arrangements, also affect whose experience informs the result.
+In the migrant-services example, provenance would therefore document the involvement of migrants, social workers, and translators alongside developers, including how their feedback changes requirements.
 
 \textbf{Usage context.}
 Usage context encompasses intended use cases, target communities, social and cultural circumstances, and adaptations for particular groups.
 Relevant characteristics include language, digital literacy, accessibility needs, and the resources available to users.
-These characteristics help assess whether participants bring experience relevant to the intended users and connect provenance to societal qualities and social purpose.
+This makes it possible to ask whether the people involved bring experience relevant to the intended users, rather than treating diversity as an abstract headcount.
 For the running example, language and digital-literacy differences would inform whom to involve and which adaptations to evaluate.
+Usage context also connects provenance to societal qualities and social purpose by relating the people involved to the communities served and their needs.
 
 \textbf{Governance.}
 Governance encompasses the bodies, decision-makers, and rules that direct a project, together with its organizational setting, funders, and shareholders.
 For \socialsource{}, this information should help explain who prioritizes requirements, accepts contributions, and resolves disagreements.
-A diverse contributor population has limited influence if it cannot shape decisions; governance records should therefore show how participation affects the application's direction.
+A diverse contributor population has limited influence if decisions remain inaccessible to those contributors.
+Documenting governance can therefore support scrutiny of whether community participation affects the application's direction.
+
 
 \section{Societal qualities}
 \label{sec:qualities}
 
 Societal qualities are software properties that help realize human and social values.
-Frameworks from the social sciences can help identify these properties and relate them to people's needs and circumstances.
-We draw on two complementary perspectives: Schwartz's Theory of Basic Human Values and the Capability Approach.
+Accessibility, multilingualism, privacy, fairness, and environmental sustainability are all important properties, but they are not the only ones relevant to this goal.
+Work in the social sciences can provide a more top-down approach to identifying relevant properties, starting from general frameworks of human and social values and translating them into software qualities suited to people's needs and circumstances.
+We draw on two complementary perspectives to guide this identification and explain how the resulting qualities can support individuals and communities.
 
 Schwartz's Theory of Basic Human Values describes values as motivational goals and explains their compatibility and conflicts.
 Its refined formulation distinguishes 19 values, covering concerns such as equality and justice, acceptance of difference, protection of nature, and autonomy of thought and action~\cite{Schwartz2012Refining}.
@@ -213,7 +247,7 @@ Universalism--tolerance & Multilingualism and respect for cultural differences \
 Universalism--nature & Energy efficiency and reduced environmental impact \\
 Self-direction--thought/action & User autonomy, understandable choices, and adaptability \\
 Security--personal & Privacy, data protection, and protection against harm \\
-Benevolence--caring & Features supporting mutual assistance and community coordination \\
+Benevolence--caring & Care for members of the community being served \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -224,88 +258,91 @@ Projects therefore need to justify their priorities with stakeholders and transl
 Schwartz's theory helps articulate these choices, but does not determine which values software should promote or which technical trade-offs are unavoidable.
 
 To understand what these choices mean for users, the Capability Approach of Sen and Nussbaum directs attention to people's actual opportunities to pursue valued activities~\cite{Nussbaum2003Capabilities}.
-From this perspective, implementing a desirable software property does not ensure that users can benefit from it.
+However, implementing a desirable software property does not ensure that users can benefit from it.
 For example, multilingual support may not enable access if the interface remains unusable or users lack the necessary technical knowledge, devices, or connectivity.
 
 \section{Social purpose}
 \label{sec:purpose}
 
-Almost any software could benefit an organization with a social purpose: an NGO may use a spreadsheet, an accounting package, or a communication platform to organize its work.
-Potential usefulness alone therefore provides little basis for distinguishing software with a social purpose.
+In principle, almost any software could have a positive social impact by benefiting an organization with a social purpose.
+An NGO, for example, may use a spreadsheet, an accounting package, or a communication platform to organize its work.
+This potential usefulness is valuable, but it provides little basis for distinguishing software with a social purpose: under such a broad interpretation, practically any application could qualify.
 
-Organizations pursuing social missions often need adaptations to common software because their structures, resources, and practices differ from those assumed by standard products.
+In practice, organizations pursuing social missions often need adaptations to common software because their structures, resources, and ways of working differ from those assumed by standard products.
 A contact-management application, for instance, may need to represent beneficiaries, volunteers, partner organizations, and their relationships, with workflows and access rules suited to that setting.
-Where beneficiaries or volunteers risk reprisals, protecting their identities may require pseudonyms, minimal collection of identifying information, and restricted access to sensitive records.
-Other adaptations may accommodate intermittent volunteer participation or limited budgets.
-These needs should be established with the organization and its communities.
+Protecting identities can be particularly important when beneficiaries or volunteers need to remain anonymous to avoid reprisals.
+This may require supporting pseudonyms, avoiding unnecessary collection of identifying information, and restricting access to sensitive records.
+An adaptation may also need to accommodate intermittent volunteer participation, limited operational budgets, or sensitive information about the people receiving support.
+These needs should be established with the organization and its communities, since different social missions and operating contexts call for different solutions.
 
-These organizations also need software that directly supports their mission.
+More importantly, these organizations need software that supports the activities through which they pursue their mission.
 Examples include coordinating food distribution, matching volunteers with requests for assistance, managing access to shelters, or helping migrants navigate local services and administrative procedures.
+Such applications translate the organization's specific needs into functionality that helps staff, volunteers, and beneficiaries carry out relevant tasks.
+In our running example, the social purpose lies in helping migrants identify suitable services and understand the steps needed to access them, while helping the community organization provide that support more effectively.
 
 This is what we mean by software with a \emph{social purpose}: software created or adapted to help organizations and communities pursuing social missions do their work better.
+It may take the form of a dedicated application or a meaningful adaptation of an existing general-purpose product.
 The connection to the mission should be explicit, identifying whose work or experience the software is intended to improve, which activities it supports, and what barriers it seeks to reduce.
 NGOs are an important example, but the same reasoning applies to public services, cooperatives, informal community groups, and other organizations pursuing social goals.
 
-A clearly stated purpose guides development and evaluation.
-Evaluation could examine reductions in administrative effort, improvements in coordination, or completion of service-access tasks, alongside any new burdens or unintended harms.
+A clearly stated purpose provides a direction for development and evaluation, while actual use provides opportunities to assess whether the software delivers the intended benefits.
+For example, evaluation could examine whether an application reduces administrative effort, improves coordination, or helps people complete service-access tasks, alongside any new burdens or unintended harms.
 A new project can therefore have a social purpose before its impact is established, provided that its intended contribution is concrete and its claims remain proportionate to the available evidence.
 
 \section{A model-based development framework for \socialsource{}}
 \label{sec:besser}
 
-We propose integrating the three social dimensions into model-based development alongside functional requirements.
-Just as models can specify an application's data, behavior, and interfaces and drive its generation, they could describe its community, expected societal qualities, and social purpose.
-These specifications would connect social commitments to implementation decisions and support their review as the application evolves.
+The \socialsource{} framework should be integrated into the development process alongside the application's functional requirements.
+Just as models can specify an application's data, behavior, and interfaces and drive its generation, they should also describe the community around the software and the societal qualities it is expected to exhibit.
+These specifications would make social commitments explicit, connect them to implementation decisions, and support their review as the application evolves.
 
 This approach could be implemented by extending existing modeling and low-code platforms such as BESSER~\cite{Alfonso2024BESSER}.\footnote{\url{https://besser-pearl.org/}}
 BESSER provides an open-source foundation of modeling facilities and extensible generators on which additional social specifications could be built.
-Graphical editors, forms, and natural-language interaction could allow participants with different technical backgrounds to contribute to and inspect these models before code is generated.
+Graphical editors, forms, and natural-language interaction could allow members with different technical backgrounds to contribute to these specifications and inspect the resulting models before code is generated.
 
 \subsection{Modeling social provenance}
 
 The community specification would describe the profiles of contributors and intended users, their roles and responsibilities, and the governance structure through which they participate in decisions.
 It should cover requirements work, translation, testing, and other non-coding contributions, as well as governance bodies, funding sources, and rules for accepting contributions and setting priorities.
 Building on the Software Diversity Card concepts, these models could generate documentation such as a diversity card or a \texttt{governance.md} file.
-This would keep project documentation consistent with the community model and make contributions, responsibilities, and decisions traceable.
-Inclusive governance would still depend on the people involved.
+This would help maintain consistency between the declared community model and project documentation, while leaving the actual practice of inclusive governance to the people involved.
 
 Figure~\ref{fig:besser-user-profiles} illustrates a starting point for modeling the people around an application.
-The editor captures personal information, language competence, and accessibility needs, with a conversational assistant helping construct an editable graphical model.
-The example represents an older French-speaking user with vision-related reading difficulties.
+The editor captures a user profile through personal information, language competence, and accessibility needs, with a conversational assistant helping construct an editable graphical model.
+In the example, an elderly French-speaking user has vision-related reading difficulties.
 The related work on personalized conversational agents shows how user profiles can inform the generation of adapted interactions~\cite{Conrardy2026Personalization}.
-For \socialsource{}, this approach would need extensions for contributors, community representatives, roles, and governance; the figure illustrates only user profiling.
+For \socialsource{}, the profiling approach could be extended to contributors and community representatives and linked to roles and governance models; the figure itself illustrates user profiling, rather than a complete community-governance specification.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/besser-user-profile-modeling.png}
 \caption{User-profile modeling in BESSER with a conversational assistant.
-Reproduced from Figure~2 of the manuscript by Conrardy et al.~\cite{Conrardy2026UserProfiles}.}
+Reproduced from Figure~2 of the supplied manuscript by Conrardy et al.~\cite{Conrardy2026UserProfiles}; related conversational-agent personalization is presented in~\cite{Conrardy2026Personalization}.}
 \label{fig:besser-user-profiles}
 \end{figure}
+
+Community and governance models would primarily generate and maintain metadata.
+They can also make participation and decision-making traceable, so that stakeholders can review who contributed, how responsibilities are allocated, and how decisions were reached.
 
 \subsection{Modeling societal qualities and trade-offs}
 
 A complementary specification would capture expected societal qualities and their trade-offs.
 It would connect the values discussed in Section~\ref{sec:qualities} to target communities, contextual requirements, priorities, minimum thresholds, and acceptable compromises.
 For the migrant-services application, stakeholders could require keyboard access to essential tasks and protection of identifying information, while negotiating language coverage, operating costs, and support for limited connectivity.
-A proposed domain-specific language (DSL) could distinguish mandatory constraints from negotiable preferences and record the rationale and participants behind each decision.
+A dedicated requirements language could distinguish mandatory constraints from negotiable preferences and record the rationale and participants behind each decision.
+Such a language remains a proposed extension, with further research questions discussed in Section~\ref{sec:discussion}.
 
-Beyond generating documentation, societal requirements would influence the generated application.
+Unlike community models, societal requirements would also influence the generated application.
 Deterministic transformations and templates could encode selected practices, such as keyboard-operable components, explicit labels, externalized text and language selection, data-minimization patterns, and appropriate access controls.
-Resource requirements could guide implementation and deployment, while portability and maintainability requirements could guide the choice of standards and code structures.
+Resource requirements could influence implementation and deployment choices, while portability and maintainability could guide the use of open standards and generated artifacts.
 Improving a generator could then propagate better practices across regenerated applications.
-Supporting societal qualities \emph{by construction} thus means systematically implementing specified practices within a defined scope.
+This is the intended meaning of supporting societal qualities by construction: systematically implementing specified practices within a defined scope.
 
-Generation alone does not establish compliance: repeatability does not imply correctness, and custom code, AI-generated additions, content, dependencies, and later changes can affect the result.
+Generation alone, however, does not establish that the application meets all its societal requirements.
+Repeatable generation does not imply correctness, and custom code, AI-generated additions, content, dependencies, and later changes can affect the result.
 Accessibility and localization checks, privacy and security reviews, resource measurements, and testing with intended users would remain necessary.
-Links between stakeholders, requirements, models, generated code, and deployed versions could connect this evidence to earlier decisions.
-
-\subsection{Connecting social purpose to evaluation}
-
-A social-purpose specification would identify the intended beneficiaries, the activities the application supports, the barriers it seeks to reduce, and the expected benefits.
-Linking these aims to functional requirements and evaluation evidence would help distinguish intended contributions from observed outcomes.
-A generated \socialsource{} Card could bring together this account, the community description, societal requirements, evidence, and limitations, with beneficiary feedback informing revisions.
-Such documentation would support assessment; establishing social benefit would still require evaluation in use.
+Links between stakeholders, requirements, models, generated code, and deployed versions could help trace the evidence and revisit earlier decisions.
+A generated \socialsource{} Card could bring together the community description, selected qualities, intended purpose, evidence, and limitations, with beneficiary feedback informing subsequent revisions.
 
 \section{Related work}
 \label{sec:related}
@@ -314,39 +351,38 @@ The idea that software can contribute to society and the public good is well est
 Ferrario et al.~\cite{Ferrario2014SocialGood} explicitly advocate software engineering for positive social change and propose Speedplay, a framework combining agile development, action research, and participatory design.
 Their work connects social purpose with development practices that account for the communities involved.
 Abebe et al.~\cite{Abebe2020SocialChange} examine the roles computing can play in social change while emphasizing the limitations of technical interventions.
-This perspective qualifies the opportunity offered by AI-assisted development: increasing our capacity to produce software does not, by itself, resolve social problems.
+This perspective qualifies the opportunity offered by agentic development: increasing our capacity to produce software does not, by itself, resolve social problems.
 Humanitarian free and open-source software (HFOSS) is also an established precedent for open software intended to benefit people.
 Ellis et al.~\cite{Ellis2015HFOSS} study students' participation in HFOSS projects, providing evidence about educational experiences rather than measured benefits for recipient communities.
 
 Other work addresses the specification and modeling of particular societal qualities.
 Moreira et al.~\cite{Moreira2023Sustainability} propose a catalog of social and technical sustainability requirements, represented through feature models and iStar, including concerns such as fairness.
-Their catalog provides a precedent for translating broad concerns into reusable requirements and a potential input to the requirements DSLs envisaged for \socialsource{}.
+Their catalog provides a precedent for translating broad concerns into reusable requirements and a potential input to the societal subdimensions and requirements DSLs envisaged for \socialsource{}.
 Roy et al.~\cite{Roy2026Taxonomy} organize sustainability requirements across environmental, social, technical, and economic dimensions, discussing metrics and relationships between categories.
-These relationships could inform the identification of compatible requirements and negotiation of trade-offs.
+These relationships are relevant to identifying compatible requirements and negotiating acceptable trade-offs, although the taxonomy does not constitute a validated scoring scheme for \socialsource{}.
 Our LangBiTe approach~\cite{Morales2024LangBiTe} offers a more focused example: a DSL for specifying ethical requirements and generating tests for fairness and bias in large language models, with traceability between requirements and their assessment.
+It illustrates how a particular societal concern can be integrated into a model-driven development process.
 
-For social provenance, the Software Diversity Card~\cite{R2} provides a direct foundation for modeling and reporting contributor diversity, an aspect less developed in the other approaches discussed here.
+For social provenance, support for explicitly modeling and reporting the diversity of contributors remains limited among the approaches discussed here.
+The Software Diversity Card~\cite{R2}, introduced earlier, is a direct foundation for describing this aspect.
 Related work on user modeling addresses a complementary concern: representing the people expected to use an application.
 Our systematic literature review~\cite{Conrardy2025UserModeling} identifies fragmented approaches to user modeling in model-driven engineering, with limited coverage of user characteristics and tool support.
 Such models can inform the profiling of community members, but describing users alone does not establish who participates in development, whose perspectives are represented, or who has decision-making authority.
 
 These contributions provide foundations for \socialsource{}, and some already integrate several of its concerns.
-Whittle et al.~\cite{Whittle2021HumanValues} further argue that human values need to be integrated into the software engineering method itself, rather than considered only as properties of the final software.
-They illustrate how participatory agile practices can incorporate values into requirements rationale and development decisions throughout the software lifecycle.
-Our proposed contribution brings social provenance, societal qualities, and social purpose together on an open-source foundation and connects them across the development lifecycle.
-The accompanying research agenda aims to make this framework actionable within modeling and low-code platforms by linking community and governance models, societal requirements, and evidence of benefit.
-
-\socialsource{} also complements the Digital Public Goods Alliance~\cite{DPGA}, which promotes the discovery and adoption of digital public goods through its registry, advocacy, and guidance, and maintains a standard for their recognition~\cite{R4}.
-Our focus on software engineering methods could support these efforts by translating social aims into explicit models, development decisions, and implementations.
+Our proposed contribution is to bring together social provenance, societal qualities, and social purpose and open source as part of a single unified end-to-end process.
+This makes it actionable and traceable, maximizing its potential impact on both the development process and the resulting software.
+We also propose a research agenda for specifying, generating, and assessing them within modeling and low-code platforms.
+This agenda seeks to connect community and governance models, societal requirements, and evidence of benefit while building on existing approaches to each concern.
 
 \section{Conclusions and roadmap}
 \label{sec:discussion}
 \label{sec:conclusion}
 
-\socialsource{} connects social provenance, societal qualities, and social purpose on an open-source foundation.
-The hypothetical migrant-services application illustrates how these dimensions reinforce one another and what evidence their assessment would require.
-We propose integrating them into model-based development through community and governance models, societal requirements, social-purpose specifications, and generators that support implementation and documentation.
-Realizing and evaluating this framework requires progress on the following research challenges.
+This paper introduced \socialsource{} as open-source software that is social in how it is built, in the qualities it embodies, and in the purposes it serves.
+We connected social provenance, societal qualities, and social purpose through a shared open-source foundation, illustrated their relevance with a hypothetical migrant-services application, and drew on existing work on diversity, human values, and capabilities to clarify their scope.
+We also proposed integrating these dimensions into model-based development by extending platforms such as BESSER with community and governance models, explicit societal requirements, and generators that act on those requirements.
+The resulting framework is an initial position for discussion; realizing and evaluating it requires progress on the following research challenges.
 
 \subsection{Defining metrics and a social score}
 
@@ -358,13 +394,11 @@ Qualification thresholds and comparisons must also account for differences in pr
 
 \subsection{Extending DSLs and integrating them into BESSER}
 
-The framework requires DSLs that express all three dimensions and connect them to the application's functional models.
+The framework requires domain-specific languages (DSLs) that can express all three dimensions and connect them to the application's functional models.
 Existing languages for user profiles, diversity, governance, and software requirements provide starting points, but need extensions and integration to cover participation, decision-making, societal qualities, social missions, and expected evidence.
-For governance, Ait et al.~\cite{Ait2026Governance} provide a DSL and decision engine for defining and enforcing policies in human--agent software development, including roles, participation rules, and traceable decisions.
-This offers a foundation for expressing how communities participate in and govern \socialsource{} projects.
-New DSLs should fill the remaining gaps and support the constraints, preferences, and decision rationales outlined in Section~\ref{sec:besser}.
+New DSLs should fill the remaining gaps and distinguish mandatory constraints from negotiable preferences, while recording dependencies, priorities, and decision rationales.
 Integrating these languages into BESSER would allow their models to guide generation, produce documentation, and maintain links to implementation and deployment.
-The languages should support interfaces usable by participants who are not modeling experts.
+Graphical editors, forms, and agentic interfaces should make these capabilities usable by participants who are not modeling experts.
 
 \subsection{Building a library of socially aware generators and architectures}
 
@@ -383,18 +417,19 @@ For example, a community may prefer locally maintained translations over an exte
 The process should make the rationale, costs, and consequences of such choices visible, preserve minimum requirements, and give participants meaningful influence over the outcome.
 The challenge is to connect this deliberation to the models and tools without treating a recorded decision as sufficient evidence of legitimate participation.
 
-Traceability should link trade-offs and their rationales to requirements, implementation choices, and evaluation evidence so that projects can revisit compromises as new information emerges.
-Research should establish how a machine-readable \socialsource{} Card can maintain these links across governance records, models, source code, runtime checks, and user feedback.
-It should distinguish declared commitments, implemented features, verified properties, and observed outcomes while keeping maintenance effort proportionate and protecting sensitive information.
+Traceability is also needed to link each trade-off and its rationale to the affected requirements, implementation choices, and evidence collected during operation and evaluation.
+These links could draw on repository documentation, governance records, models, source code, runtime checks, and user feedback, distinguishing declared commitments from implemented features, verified properties, and observed outcomes.
+These links would help assess whether the expected compromises remain acceptable and support their revision as measurements, user feedback, and observed outcomes provide new information.
+A machine-readable \socialsource{} Card could organize the evidence, its limitations, and its links to earlier decisions, supporting review and correction with proportionate effort and appropriate protection of sensitive information.
 
 \subsection{Making development tools and processes accessible}
 
 Accessibility must extend to the tools and processes used to create the software, as well as to the resulting application.
 Following the Capability Approach~\cite{Nussbaum2003Capabilities}, an invitation to participate is insufficient unless team members have effective opportunities to express requirements, inspect and modify models, test alternatives, and influence decisions.
 Modeling environments, testing approaches, documentation, and collaboration practices must therefore accommodate participants with different abilities, languages, resources, and levels of technical knowledge.
-One research direction is to explore voice interaction, conversational assistants, and augmented reality as alternative ways to create, inspect, and validate models.
+One research direction is to extend these tools with AI-powered interfaces, including voice interaction, conversational assistants, and augmented reality, offering alternative ways to create, explore, and validate models.
 Such interfaces could help non-technical participants contribute domain knowledge without first mastering a modeling language, while allowing them to inspect, correct, and challenge the tools' interpretations.
-Research should establish which interaction modes work for which participants and tasks, and whether accessible alternatives enable effective participation throughout development.
+Research should establish which interaction modes work for which participants and tasks, provide accessible alternatives, and evaluate whether all team members can participate effectively throughout development.
 
 \subsection{Evaluating usefulness and social benefit in practice}
 
@@ -402,8 +437,11 @@ The framework, its metrics, and its supporting tools require evaluation with org
 Case studies should examine whether the approach helps participants express their needs, improves development decisions, and leads to useful software at an acceptable cost.
 Comparing automated assessments with expert and community judgments would help identify disagreement, missing evidence, and misleading indicators.
 Longitudinal studies should investigate adoption, benefits, unintended harms, and who remains excluded, while distinguishing the contribution of software from organizational changes or other interventions.
-The findings should test the sufficiency of the proposed dimensions and guide revisions with the people the framework aims to serve.
+These evaluations should also test whether the proposed dimensions are sufficient and refine the framework in response to the people it aims to serve.
 
+
+
+\nocite{*}
 \bibliographystyle{unsrt}
 \bibliography{references}
 \end{document}
