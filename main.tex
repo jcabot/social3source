@@ -222,15 +222,13 @@ Documenting governance can therefore support scrutiny of whether community parti
 \section{Societal qualities}
 \label{sec:qualities}
 
-Societal qualities are software properties that help realize human and social values.
-Accessibility, multilingualism, privacy, fairness, and environmental sustainability are all important properties, but they are not the only ones relevant to this goal.
-Work in the social sciences can provide a more top-down approach to identifying relevant properties, starting from general frameworks of human and social values and translating them into software qualities suited to people's needs and circumstances.
-We draw on two complementary perspectives to guide this identification and explain how the resulting qualities can support individuals and communities.
+Software must embed societal qualities that help realize and respect human and social values. Examples of well-known properties expected from a a social software are: Accessibility, multilingualism, multiculturalism, privacy, fairness, environmental sustainability, etc. 
 
-Schwartz's Theory of Basic Human Values describes values as motivational goals and explains their compatibility and conflicts.
-Its refined formulation distinguishes 19 values, covering concerns such as equality and justice, acceptance of difference, protection of nature, and autonomy of thought and action~\cite{Schwartz2012Refining}.
-Table~\ref{tab:values-qualities} illustrates how selected values could inform the societal qualities and requirements of \socialsource{} software.
-These mappings are our proposed interpretations.
+But they are not the only ones. Work in the social sciences can provide a more top-down approach to identifying relevant properties, starting from general frameworks of human and social values and translating them into software qualities suited to people's needs and circumstances. We propose to start by drawing on two complementary perspectives. 
+
+On the one hand, Schwartz's Theory of Basic Human Values describes 19 values, covering concerns such as equality and justice, acceptance of difference, protection of nature, and autonomy of thought and action~\cite{Schwartz2012Refining}.
+
+We could then refine these values in more concrete software qualities and requirements. Table~\ref{tab:values-qualities} illustrates shows a partial mapping for some values.
 
 \begin{table}[htbp]
 \centering
@@ -252,14 +250,13 @@ Benevolence--caring & Care for members of the community being served \\
 \end{tabularx}
 \end{table}
 
-These relationships are neither exhaustive nor one-to-one.
-Privacy can support both security and autonomy, while equitable access may require accessibility, affordability, and support for limited connectivity.
-Projects therefore need to justify their priorities with stakeholders and translate them into requirements suited to the intended context.
-Schwartz's theory helps articulate these choices, but does not determine which values software should promote or which technical trade-offs are unavoidable.
+Note that these relationships are neither exhaustive nor one-to-one.
+Privacy can support both security and autonomy, while equitable access may require accessibility, affordability, and support for limited (internet) connectivity.
+And, as always, ideally we would all software satisfy all qualities but technical, economical, temporal,.. trade-offs are unavoidable when deciding which ones to prioritize and actually implement. 
 
-To understand what these choices mean for users, the Capability Approach of Sen and Nussbaum directs attention to people's actual opportunities to pursue valued activities~\cite{Nussbaum2003Capabilities}.
-However, implementing a desirable software property does not ensure that users can benefit from it.
-For example, multilingual support may not enable access if the interface remains unusable or users lack the necessary technical knowledge, devices, or connectivity.
+On the other hand, the Capability Approach of Sen and Nussbaum complements the values discussion by stating that values are not enough and we need to make sure that people have actual opportunities to pursue those valued  activities~\cite{Nussbaum2003Capabilities}.
+Indeed, implementing a desirable software property does not ensure that users can benefit from it.
+For example, multilingual support may not bring any value if the users that would need that support cannot activate it due to a poor UI design or lack of connectivity (imagine English support is local but any other language requires an on-the-fly AI-based translation that requires internet access).
 
 \section{Social purpose}
 \label{sec:purpose}
@@ -316,8 +313,7 @@ For \socialsource{}, the profiling approach could be extended to contributors an
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/besser-user-profile-modeling.png}
-\caption{User-profile modeling in BESSER with a conversational assistant.
-Reproduced from Figure~2 of the supplied manuscript by Conrardy et al.~\cite{Conrardy2026UserProfiles}; related conversational-agent personalization is presented in~\cite{Conrardy2026Personalization}.}
+\caption{User-profile modeling in BESSER with a conversational assistant based on ~\cite{Conrardy2026Personalization}.}
 \label{fig:besser-user-profiles}
 \end{figure}
 
